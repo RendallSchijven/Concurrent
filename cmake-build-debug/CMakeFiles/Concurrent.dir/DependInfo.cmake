@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/cygdrive/c/Users/renda/Desktop/Git/Concurrent/mandelbrot.cpp" "/cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles/Concurrent.dir/mandelbrot.cpp.o"
+  "/cygdrive/c/Users/renda/Desktop/Git/Concurrent/temp.cpp" "/cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles/Concurrent.dir/temp.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

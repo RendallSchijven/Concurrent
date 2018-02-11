@@ -3,4 +3,4 @@ project(Concurrent)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Concurrent mandelbrot.cpp)
+add_executable(Mandelbrot mandelbrot.cpp)

@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Concurrent.dir/mandelbrot.cpp.o"
+  "CMakeFiles/Concurrent.dir/temp.cpp.o"
   "Concurrent.pdb"
   "Concurrent.exe"
   "libConcurrent.dll.a"

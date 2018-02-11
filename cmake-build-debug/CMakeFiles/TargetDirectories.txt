@@ -1,3 +1,3 @@
 /cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles/edit_cache.dir
-/cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles/Concurrent.dir
+/cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles/Mandelbrot.dir

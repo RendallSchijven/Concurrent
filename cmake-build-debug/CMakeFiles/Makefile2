@@ -60,39 +60,39 @@ CMAKE_SOURCE_DIR = /cygdrive/c/Users/renda/Desktop/Git/Concurrent
 CMAKE_BINARY_DIR = /cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug
 
 #=============================================================================
-# Target rules for target CMakeFiles/Concurrent.dir
+# Target rules for target CMakeFiles/Mandelbrot.dir
 
 # All Build rule for target.
-CMakeFiles/Concurrent.dir/all:
-	$(MAKE) -f CMakeFiles/Concurrent.dir/build.make CMakeFiles/Concurrent.dir/depend
-	$(MAKE) -f CMakeFiles/Concurrent.dir/build.make CMakeFiles/Concurrent.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target Concurrent"
-.PHONY : CMakeFiles/Concurrent.dir/all
+CMakeFiles/Mandelbrot.dir/all:
+	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/depend
+	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target Mandelbrot"
+.PHONY : CMakeFiles/Mandelbrot.dir/all
 
 # Include target in all.
-all: CMakeFiles/Concurrent.dir/all
+all: CMakeFiles/Mandelbrot.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Concurrent.dir/rule: cmake_check_build_system
+CMakeFiles/Mandelbrot.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Concurrent.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Mandelbrot.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/Concurrent.dir/rule
+.PHONY : CMakeFiles/Mandelbrot.dir/rule
 
 # Convenience name for target.
-Concurrent: CMakeFiles/Concurrent.dir/rule
+Mandelbrot: CMakeFiles/Mandelbrot.dir/rule
 
-.PHONY : Concurrent
-
-# clean rule for target.
-CMakeFiles/Concurrent.dir/clean:
-	$(MAKE) -f CMakeFiles/Concurrent.dir/build.make CMakeFiles/Concurrent.dir/clean
-.PHONY : CMakeFiles/Concurrent.dir/clean
+.PHONY : Mandelbrot
 
 # clean rule for target.
-clean: CMakeFiles/Concurrent.dir/clean
+CMakeFiles/Mandelbrot.dir/clean:
+	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/clean
+.PHONY : CMakeFiles/Mandelbrot.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/Mandelbrot.dir/clean
 
 .PHONY : clean
 

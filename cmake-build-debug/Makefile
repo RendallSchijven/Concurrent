@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Concurrent
+# Target rules for targets named Mandelbrot
 
 # Build rule for target.
-Concurrent: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Concurrent
-.PHONY : Concurrent
+Mandelbrot: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Mandelbrot
+.PHONY : Mandelbrot
 
 # fast build rule for target.
-Concurrent/fast:
-	$(MAKE) -f CMakeFiles/Concurrent.dir/build.make CMakeFiles/Concurrent.dir/build
-.PHONY : Concurrent/fast
+Mandelbrot/fast:
+	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/build
+.PHONY : Mandelbrot/fast
 
 mandelbrot.o: mandelbrot.cpp.o
 
@@ -129,7 +129,7 @@ mandelbrot.o: mandelbrot.cpp.o
 
 # target to build an object file
 mandelbrot.cpp.o:
-	$(MAKE) -f CMakeFiles/Concurrent.dir/build.make CMakeFiles/Concurrent.dir/mandelbrot.cpp.o
+	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/mandelbrot.cpp.o
 .PHONY : mandelbrot.cpp.o
 
 mandelbrot.i: mandelbrot.cpp.i
@@ -138,7 +138,7 @@ mandelbrot.i: mandelbrot.cpp.i
 
 # target to preprocess a source file
 mandelbrot.cpp.i:
-	$(MAKE) -f CMakeFiles/Concurrent.dir/build.make CMakeFiles/Concurrent.dir/mandelbrot.cpp.i
+	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/mandelbrot.cpp.i
 .PHONY : mandelbrot.cpp.i
 
 mandelbrot.s: mandelbrot.cpp.s
@@ -147,7 +147,7 @@ mandelbrot.s: mandelbrot.cpp.s
 
 # target to generate assembly for a file
 mandelbrot.cpp.s:
-	$(MAKE) -f CMakeFiles/Concurrent.dir/build.make CMakeFiles/Concurrent.dir/mandelbrot.cpp.s
+	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/mandelbrot.cpp.s
 .PHONY : mandelbrot.cpp.s
 
 # Help Target
@@ -158,7 +158,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... Concurrent"
+	@echo "... Mandelbrot"
 	@echo "... mandelbrot.o"
 	@echo "... mandelbrot.i"
 	@echo "... mandelbrot.s"

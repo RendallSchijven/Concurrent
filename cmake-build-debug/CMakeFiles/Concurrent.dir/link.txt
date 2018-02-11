@@ -1,1 +1,1 @@
-/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/Concurrent.dir/mandelbrot.cpp.o  -o Concurrent.exe -Wl,--out-implib,libConcurrent.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/Concurrent.dir/mandelbrot.cpp.o CMakeFiles/Concurrent.dir/temp.cpp.o  -o Concurrent.exe -Wl,--out-implib,libConcurrent.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

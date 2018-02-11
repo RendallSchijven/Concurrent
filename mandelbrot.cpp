@@ -57,25 +57,113 @@ public:
     }    
 };
 
-int main()
+/*
+ The function that calculates if a point is within the set or not
+ */
+int findMandelBrot(double cr, double ci, int max_iterations)
 {
-    const unsigned width = 1600; 
-    const unsigned height = 1600;
+    int i = 0;
+    double zr = 0.0, zi = 0.0;
+    while(i < max_iterations && zr * zr + zi * zi < 4.0)
+    {
+        double temp = zr * zr - zi * zi + cr;
+        zi =2.0 * zr * zi + ci;
+        zr = temp;
+        i++;
+    }
 
-    PPMImage image(height, width); 
+    if(i >= max_iterations)
+        return -1;
+    return i;
+}
 
-    /*
-    image[y][x].r = image[y][x].g = image[y][x].b = 255; // white pixel
-    
-    image[y][x].r = image[y][x].g = image[y][x][b] = 0; // black pixel
-   
-    // red pixel
-    image[y][x].r = 255;
-    image[y][x].g = 0;
-    image[y][x].b = 0;
-    */
+/* Function that retrieves the real number*/
+double mapToReal (int x, int width, double minR, double maxR)
+{
+    double range = maxR - minR;
+
+    return x * (range / width) + minR;
+}
+
+/* Function that retrieves the imaginary number*/
+double mapToImaginary(int y, int height, double minI, double maxI)
+{
+    double range = maxI - minI;
+
+    return y * (range / height) + minI;
+}
+
+/* Function that sets the color for each pixel*/
+int * getColor (int n)
+{
+    int * colors = new int[3];
+
+    if(n == -1)
+    {
+        colors[0] = colors[1] = colors[2] = 0;
+    }
+    else if(n == 0)
+    {
+        colors[0] = 255;
+        colors[1] = colors[2] = 0;
+    }
+    else
+    {
+        if (n < 16) {
+            colors[0] = 16 * (16 - n);
+            colors[1] = 0;
+            colors[2] = 16 * n - 1;
+        } else if (n < 32) {
+            colors[0] = 0;
+            colors[1] = 16 * (n - 16);
+            colors[2] = 16 * (32 - n) - 1;
+        } else if (n < 64) {
+            colors[0] = 8 * (n - 32);
+            colors[1] = 8 * (64 - n) - 1;
+            colors[2] = 0;
+        } else { // range is 64 - 127
+            colors[0] = 255 - (n - 64) * 4;
+            colors[1] = colors[2] = 0;
+        }
+    }
+
+    return colors;
+}
+
+/* This function sets the needed variables for the mandelbrot aswell as calculating and drawing it */
+void mandelbrot(){
+    const unsigned width = 1600;
+    const unsigned height = 1300;
+    const int maxIterations = 127;
+    const double minR = -2.0;
+    const double maxR = 0.7;
+    const double minI = -1.2;
+    const double maxI = 1.2;
+
+    PPMImage image(height, width);
+
+    for (int y = 0; y < height; y++) //Rows
+    {
+        for(int x = 0; x < width; x++) //Pixels in row
+        {
+            double cr = mapToReal(x, width, minR, maxR);
+            double ci = mapToImaginary(y, height, minI, maxI);
+
+            int n = findMandelBrot(cr, ci, maxIterations);
+
+            int* colors = getColor(n);
+            image[y][x].r = colors[0];
+            image[y][x].g = colors[1];
+            image[y][x].b = colors[2];
+        }
+    }
 
     image.save("mandelbrot.ppm");
+}
+
+int main()
+{
+    mandelbrot();
     return 0;
 }
 
