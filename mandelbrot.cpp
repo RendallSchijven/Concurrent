@@ -155,6 +155,8 @@ void mandelbrot(){
             image[y][x].r = colors[0];
             image[y][x].g = colors[1];
             image[y][x].b = colors[2];
+
+            delete colors;
         }
     }
 
