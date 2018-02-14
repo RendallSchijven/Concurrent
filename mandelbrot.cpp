@@ -3,7 +3,12 @@
 // view output with: eog mandelbrot.ppm
 
 #include <fstream>
+#include <iostream>
+#include <thread>
+#include <vector>
 #include <complex> // if you make use of complex number facilities in C++
+
+int count = 0;
 
 template <class T> struct RGB { T r, g, b; };
 
@@ -121,6 +126,7 @@ int * getColor (int n)
             colors[0] = 8 * (n - 32);
             colors[1] = 8 * (64 - n) - 1;
             colors[2] = 0;
+            count++;
         } else { // range is 64 - 127
             colors[0] = 255 - (n - 64) * 4;
             colors[1] = colors[2] = 0;
@@ -131,23 +137,19 @@ int * getColor (int n)
 }
 
 /* This function sets the needed variables for the mandelbrot aswell as calculating and drawing it */
-void mandelbrot(){
-    const unsigned width = 1600;
-    const unsigned height = 1300;
+void mandelbrot(int x, int y, int maxX, int maxY, PPMImage &image){
     const int maxIterations = 127;
     const double minR = -2.0;
     const double maxR = 0.7;
     const double minI = -1.2;
     const double maxI = 1.2;
 
-    PPMImage image(height, width);
-
-    for (int y = 0; y < height; y++) //Rows
+    for (int i = y; i < maxY; i++) //Rows
     {
-        for(int x = 0; x < width; x++) //Pixels in row
+        for(int j = x; j < maxX; j++) //Pixels in row
         {
-            double cr = mapToReal(x, width, minR, maxR);
-            double ci = mapToImaginary(y, height, minI, maxI);
+            double cr = mapToReal(x, maxX, minR, maxR);
+            double ci = mapToImaginary(y, maxY, minI, maxI);
 
             int n = findMandelBrot(cr, ci, maxIterations);
 
@@ -159,13 +161,55 @@ void mandelbrot(){
             delete colors;
         }
     }
-
-    image.save("mandelbrot.ppm");
 }
 
 int main()
 {
-    mandelbrot();
+    const unsigned width = 1600;
+    const unsigned height = 1300;
+    const unsigned threads = 4;
+
+    PPMImage image(height, width);
+
+    std::vector<std::thread> workers;
+
+    for (int i = 0; i < threads; i++)
+    {
+        int x = 0;
+        int y = 0;
+
+        //For i = 0 or 2
+        if(i % 2 == 0){
+            x = width / 2;
+        }
+
+        //For i = 0 or 3
+        if(i % 3 == 0){
+            y = height / 2;
+        }
+
+        workers.push_back(std::thread([x, y, width, height, &image]()
+        {
+            mandelbrot(x, y, x + width /2, y + width / 2 , std::ref(image));
+        }));
+    };
+    for(auto &th : workers)
+    {
+        th.join();
+    }
+
+    //std::thread t1 (mandelbrot, 0, 0, 800, 650, std::ref(image)); //Bottom left
+    //std::thread t2 (mandelbrot, 800, 0, width, 650, std::ref(image)); //Bottom right
+    //std::thread t3 (mandelbrot, 0, 650, 800, height, std::ref(image)); //Top left
+    //std::thread t4 (mandelbrot, 800, 650, width, height, std::ref(image)); //Top right
+
+    //t1.join();
+    //t2.join();
+    //t3.join();
+    //t4.join();
+
+    image.save("mandelbrot.ppm");
+    std::cout << count << std::endl;
     return 0;
 }
 
