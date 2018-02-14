@@ -8,8 +8,6 @@
 #include <vector>
 #include <complex> // if you make use of complex number facilities in C++
 
-int count = 0;
-
 template <class T> struct RGB { T r, g, b; };
 
 template <class T>
@@ -57,9 +55,9 @@ public:
         std::ofstream out(filename, std::ios_base::binary);
         out <<"P6" << std::endl << _cols << " " << _rows << std::endl << 255 << std::endl;
         for (size_t y=0; y<_rows; y++)
-            for (size_t x=0; x<_cols; x++) 
+            for (size_t x=0; x<_cols; x++)
                 out << _matrix[y][x].r << _matrix[y][x].g << _matrix[y][x].b;
-    }    
+    }
 };
 
 /*
@@ -126,7 +124,6 @@ int * getColor (int n)
             colors[0] = 8 * (n - 32);
             colors[1] = 8 * (64 - n) - 1;
             colors[2] = 0;
-            count++;
         } else { // range is 64 - 127
             colors[0] = 255 - (n - 64) * 4;
             colors[1] = colors[2] = 0;
@@ -137,7 +134,7 @@ int * getColor (int n)
 }
 
 /* This function sets the needed variables for the mandelbrot aswell as calculating and drawing it */
-void mandelbrot(int x, int y, int maxX, int maxY, PPMImage &image){
+void mandelbrot(int x, int y, int maxX, int maxY, int width, int height, PPMImage &image){
     const int maxIterations = 127;
     const double minR = -2.0;
     const double maxR = 0.7;
@@ -148,15 +145,15 @@ void mandelbrot(int x, int y, int maxX, int maxY, PPMImage &image){
     {
         for(int j = x; j < maxX; j++) //Pixels in row
         {
-            double cr = mapToReal(x, maxX, minR, maxR);
-            double ci = mapToImaginary(y, maxY, minI, maxI);
+            double cr = mapToReal(j, width, minR, maxR);
+            double ci = mapToImaginary(i, height, minI, maxI);
 
             int n = findMandelBrot(cr, ci, maxIterations);
 
             int* colors = getColor(n);
-            image[y][x].r = colors[0];
-            image[y][x].g = colors[1];
-            image[y][x].b = colors[2];
+            image[i][j].r = colors[0];
+            image[i][j].g = colors[1];
+            image[i][j].b = colors[2];
 
             delete colors;
         }
@@ -188,9 +185,9 @@ int main()
             y = height / 2;
         }
 
-        workers.push_back(std::thread([x, y, width, height, &image]()
+        workers.emplace_back(std::thread([x, y, width, height, &image]()
         {
-            mandelbrot(x, y, x + width /2, y + width / 2 , std::ref(image));
+            mandelbrot(x, y, x + width /2, y + height / 2, width, height, std::ref(image));
         }));
     };
     for(auto &th : workers)
@@ -198,18 +195,8 @@ int main()
         th.join();
     }
 
-    //std::thread t1 (mandelbrot, 0, 0, 800, 650, std::ref(image)); //Bottom left
-    //std::thread t2 (mandelbrot, 800, 0, width, 650, std::ref(image)); //Bottom right
-    //std::thread t3 (mandelbrot, 0, 650, 800, height, std::ref(image)); //Top left
-    //std::thread t4 (mandelbrot, 800, 650, width, height, std::ref(image)); //Top right
-
-    //t1.join();
-    //t2.join();
-    //t3.join();
-    //t4.join();
-
     image.save("mandelbrot.ppm");
-    std::cout << count << std::endl;
     return 0;
 }
+
 

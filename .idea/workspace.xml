@@ -13,33 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cf1b1e49-3685-4988-8544-de1577358701" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeCCompiler.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeCCompiler.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeCXXCompiler.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeCXXCompiler.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeDetermineCompilerABI_C.bin" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeDetermineCompilerABI_C.bin" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeDetermineCompilerABI_CXX.bin" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeDetermineCompilerABI_CXX.bin" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeRCCompiler.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeRCCompiler.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeSystem.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeSystem.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CompilerIdC/CMakeCCompilerId.c" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CompilerIdC/CMakeCCompilerId.c" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CompilerIdC/a.exe" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CompilerIdC/a.exe" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CompilerIdCXX/CMakeCXXCompilerId.cpp" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CompilerIdCXX/a.exe" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CompilerIdCXX/a.exe" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake.check_cache" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake.check_cache" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.c" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.c" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.cxx" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.cxx" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Concurrent.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/Concurrent.cbp" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/mandelbrot.ppm" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/mandelbrot.ppm" afterPath="$PROJECT_DIR$/cmake-build-debug/mandelbrot.ppm" />
       <change beforePath="$PROJECT_DIR$/mandelbrot.cpp" afterPath="$PROJECT_DIR$/mandelbrot.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -56,13 +30,31 @@
       <file leaf-file-name="mandelbrot.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mandelbrot.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="614">
-              <caret line="211" column="35" lean-forward="false" selection-start-line="211" selection-start-column="35" selection-end-line="211" selection-end-column="35" />
+            <state relative-caret-position="457">
+              <caret line="131" column="0" lean-forward="true" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
               <folding>
                 <element signature="e#120#138#0" expanded="true" />
-                <element signature="e#295#304#0" expanded="true" />
-                <element signature="e#342#351#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mandelbrot.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Drive/hboIT/jaar2/p3/concurrentProgrammeren/opdracht1/mandelbrot.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="145" column="5" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mandelbrot.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa0.078/mandelbrot.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="551">
+              <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="69" selection-end-column="70" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -72,6 +64,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>x</find>
+      <find>colors</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -85,6 +78,7 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/mandelbrot.h" />
         <option value="$PROJECT_DIR$/runMandelbrot.cpp" />
+        <option value="$PROJECT_DIR$/../../Drive/hboIT/jaar2/p3/concurrentProgrammeren/opdracht1/mandelbrot.cpp" />
         <option value="$PROJECT_DIR$/mandelbrot.cpp" />
       </list>
     </option>
@@ -96,10 +90,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="102" />
+    <option name="y" value="210" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -189,12 +183,20 @@
       <workItem from="1518536017003" duration="455000" />
       <workItem from="1518607852443" duration="599000" />
       <workItem from="1518622619661" duration="12436000" />
-      <workItem from="1518639637457" duration="1771000" />
+      <workItem from="1518639637457" duration="4534000" />
     </task>
+    <task id="LOCAL-00001" summary="it creates mandelbrot">
+      <created>1518641410847</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1518641410847</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28123000" />
+    <option name="totallyTimeSpent" value="30886000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -231,7 +233,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="29" />
+      <option name="time" value="38" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -242,8 +244,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#120#138#0" expanded="true" />
-            <element signature="e#295#304#0" expanded="true" />
-            <element signature="e#342#351#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -262,8 +262,6 @@
           <caret line="137" column="16" lean-forward="false" selection-start-line="137" selection-start-column="16" selection-end-line="137" selection-end-column="16" />
           <folding>
             <element signature="e#120#138#0" expanded="true" />
-            <element signature="e#295#304#0" expanded="true" />
-            <element signature="e#342#351#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -282,8 +280,6 @@
           <caret line="137" column="16" lean-forward="false" selection-start-line="137" selection-start-column="16" selection-end-line="137" selection-end-column="16" />
           <folding>
             <element signature="e#120#138#0" expanded="true" />
-            <element signature="e#295#304#0" expanded="true" />
-            <element signature="e#342#351#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -302,8 +298,6 @@
           <caret line="136" column="18" lean-forward="false" selection-start-line="136" selection-start-column="18" selection-end-line="136" selection-end-column="18" />
           <folding>
             <element signature="e#120#138#0" expanded="true" />
-            <element signature="e#295#304#0" expanded="true" />
-            <element signature="e#342#351#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -322,8 +316,6 @@
           <caret line="154" column="38" lean-forward="true" selection-start-line="154" selection-start-column="38" selection-end-line="154" selection-end-column="38" />
           <folding>
             <element signature="e#120#138#0" expanded="true" />
-            <element signature="e#295#304#0" expanded="true" />
-            <element signature="e#342#351#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -342,8 +334,6 @@
           <caret line="68" column="45" lean-forward="true" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="45" />
           <folding>
             <element signature="e#120#138#0" expanded="true" />
-            <element signature="e#295#304#0" expanded="true" />
-            <element signature="e#342#351#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -362,8 +352,6 @@
           <caret line="59" column="4" lean-forward="false" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
           <folding>
             <element signature="e#120#138#0" expanded="true" />
-            <element signature="e#295#304#0" expanded="true" />
-            <element signature="e#342#351#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -391,14 +379,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa0.078/mandelbrot.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="69" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Drive/hboIT/jaar2/p3/concurrentProgrammeren/opdracht1/mandelbrot.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="145" column="5" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mandelbrot.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="211" column="35" lean-forward="false" selection-start-line="211" selection-start-column="35" selection-end-line="211" selection-end-column="35" />
+        <state relative-caret-position="457">
+          <caret line="131" column="0" lean-forward="true" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
           <folding>
             <element signature="e#120#138#0" expanded="true" />
-            <element signature="e#295#304#0" expanded="true" />
-            <element signature="e#342#351#0" expanded="true" />
           </folding>
         </state>
       </provider>
