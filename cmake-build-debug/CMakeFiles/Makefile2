@@ -60,13 +60,50 @@ CMAKE_SOURCE_DIR = /cygdrive/c/Users/renda/Desktop/Git/Concurrent
 CMAKE_BINARY_DIR = /cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug
 
 #=============================================================================
+# Target rules for target CMakeFiles/Dotproduct.dir
+
+# All Build rule for target.
+CMakeFiles/Dotproduct.dir/all:
+	$(MAKE) -f CMakeFiles/Dotproduct.dir/build.make CMakeFiles/Dotproduct.dir/depend
+	$(MAKE) -f CMakeFiles/Dotproduct.dir/build.make CMakeFiles/Dotproduct.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target Dotproduct"
+.PHONY : CMakeFiles/Dotproduct.dir/all
+
+# Include target in all.
+all: CMakeFiles/Dotproduct.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Dotproduct.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Dotproduct.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/Dotproduct.dir/rule
+
+# Convenience name for target.
+Dotproduct: CMakeFiles/Dotproduct.dir/rule
+
+.PHONY : Dotproduct
+
+# clean rule for target.
+CMakeFiles/Dotproduct.dir/clean:
+	$(MAKE) -f CMakeFiles/Dotproduct.dir/build.make CMakeFiles/Dotproduct.dir/clean
+.PHONY : CMakeFiles/Dotproduct.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/Dotproduct.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/Mandelbrot.dir
 
 # All Build rule for target.
 CMakeFiles/Mandelbrot.dir/all:
 	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/depend
 	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target Mandelbrot"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target Mandelbrot"
 .PHONY : CMakeFiles/Mandelbrot.dir/all
 
 # Include target in all.

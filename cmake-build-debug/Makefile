@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named Dotproduct
+
+# Build rule for target.
+Dotproduct: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Dotproduct
+.PHONY : Dotproduct
+
+# fast build rule for target.
+Dotproduct/fast:
+	$(MAKE) -f CMakeFiles/Dotproduct.dir/build.make CMakeFiles/Dotproduct.dir/build
+.PHONY : Dotproduct/fast
+
+#=============================================================================
 # Target rules for targets named Mandelbrot
 
 # Build rule for target.
@@ -122,6 +135,33 @@ Mandelbrot: cmake_check_build_system
 Mandelbrot/fast:
 	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/build
 .PHONY : Mandelbrot/fast
+
+dotproduct.o: dotproduct.cpp.o
+
+.PHONY : dotproduct.o
+
+# target to build an object file
+dotproduct.cpp.o:
+	$(MAKE) -f CMakeFiles/Dotproduct.dir/build.make CMakeFiles/Dotproduct.dir/dotproduct.cpp.o
+.PHONY : dotproduct.cpp.o
+
+dotproduct.i: dotproduct.cpp.i
+
+.PHONY : dotproduct.i
+
+# target to preprocess a source file
+dotproduct.cpp.i:
+	$(MAKE) -f CMakeFiles/Dotproduct.dir/build.make CMakeFiles/Dotproduct.dir/dotproduct.cpp.i
+.PHONY : dotproduct.cpp.i
+
+dotproduct.s: dotproduct.cpp.s
+
+.PHONY : dotproduct.s
+
+# target to generate assembly for a file
+dotproduct.cpp.s:
+	$(MAKE) -f CMakeFiles/Dotproduct.dir/build.make CMakeFiles/Dotproduct.dir/dotproduct.cpp.s
+.PHONY : dotproduct.cpp.s
 
 mandelbrot.o: mandelbrot.cpp.o
 
@@ -158,7 +198,11 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... Dotproduct"
 	@echo "... Mandelbrot"
+	@echo "... dotproduct.o"
+	@echo "... dotproduct.i"
+	@echo "... dotproduct.s"
 	@echo "... mandelbrot.o"
 	@echo "... mandelbrot.i"
 	@echo "... mandelbrot.s"
