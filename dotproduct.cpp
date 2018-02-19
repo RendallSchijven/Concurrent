@@ -4,6 +4,7 @@
 
 #include <thread>
 #include <vector>
+#include <mutex>
 #include <iostream>
 
 using Vector = std::vector<int>;
@@ -46,6 +47,7 @@ struct DotProduct
 private:
     const Vector &a;
     const Vector &b;
+    std::mutex mutex;
 
     std::vector<std::thread> workers;
     int result;
@@ -53,8 +55,10 @@ private:
     void partial_dot_product(int L, int R)
     {
         for (int i = L; i < R; ++i) {
+            mutex.lock();
             result += a[i] * b[i];
-	}
+            mutex.unlock();
+	    }
     }
 
 };
