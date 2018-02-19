@@ -55,9 +55,8 @@ private:
     void partial_dot_product(int L, int R)
     {
         for (int i = L; i < R; ++i) {
-            mutex.lock();
+            std::lock_guard<std::mutex> guard(mutex);
             result += a[i] * b[i];
-            mutex.unlock();
 	    }
     }
 
