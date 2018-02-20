@@ -134,16 +134,16 @@ int * getColor (int n)
 }
 
 /* This function sets the needed variables for the mandelbrot aswell as calculating and drawing it */
-void mandelbrot(int x, int y, int maxX, int maxY, int width, int height, PPMImage &image){
+void mandelbrot(int minX, int maxX, int width, int height, PPMImage &image){
     const int maxIterations = 127;
     const double minR = -2.0;
     const double maxR = 0.7;
     const double minI = -1.2;
     const double maxI = 1.2;
 
-    for (int i = y; i < maxY; i++) //Rows
+    for (int i = 0; i < height; i++) //Rows
     {
-        for(int j = x; j < maxX; j++) //Pixels in row
+        for(int j = minX; j < maxX; j++) //Pixels in row
         {
             double cr = mapToReal(j, width, minR, maxR);
             double ci = mapToImaginary(i, height, minI, maxI);
@@ -156,6 +156,13 @@ void mandelbrot(int x, int y, int maxX, int maxY, int width, int height, PPMImag
             image[i][j].b = colors[2];
 
             delete colors;
+
+            //This coloring is way faster but less pretty
+/*            if(n == -1){
+                image[i][j].r = image[i][j].g = image[i][j].b = 0;
+            } else{
+                image[i][j].r = image[i][j].g = image[i][j].b = 100;
+            }*/
         }
     }
 }
@@ -170,31 +177,24 @@ int main()
 
     std::vector<std::thread> workers;
 
+    clock_t start_clock = clock();
     for (int i = 0; i < threads; i++)
     {
-        int x = 0;
-        int y = 0;
+        int part = width / threads;
+        int minX = part * i;
+        int maxX = part * (i+1);
 
-        //For i = 0 or 2
-        if(i % 2 == 0){
-            x = width / 2;
-        }
-
-        //For i = 0 or 3
-        if(i % 3 == 0){
-            y = height / 2;
-        }
-
-        workers.emplace_back(std::thread([x, y, width, height, &image]()
+        workers.emplace_back(std::thread([minX, maxX, width, height, &image]()
         {
-            mandelbrot(x, y, x + width /2, y + height / 2, width, height, std::ref(image));
+            mandelbrot(minX, maxX, width, height, std::ref(image));
         }));
     };
     for(auto &th : workers)
     {
         th.join();
     }
-
+    clock_t stop_clock = clock();
+    std::cout << (double(stop_clock - start_clock) / CLOCKS_PER_SEC) << " seconds\n";
     image.save("mandelbrot.ppm");
     return 0;
 }
