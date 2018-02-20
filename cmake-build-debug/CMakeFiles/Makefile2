@@ -60,39 +60,76 @@ CMAKE_SOURCE_DIR = /cygdrive/c/Users/renda/Desktop/Git/Concurrent
 CMAKE_BINARY_DIR = /cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug
 
 #=============================================================================
-# Target rules for target CMakeFiles/Dotproduct.dir
+# Target rules for target CMakeFiles/Atomic.dir
 
 # All Build rule for target.
-CMakeFiles/Dotproduct.dir/all:
-	$(MAKE) -f CMakeFiles/Dotproduct.dir/build.make CMakeFiles/Dotproduct.dir/depend
-	$(MAKE) -f CMakeFiles/Dotproduct.dir/build.make CMakeFiles/Dotproduct.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target Dotproduct"
-.PHONY : CMakeFiles/Dotproduct.dir/all
+CMakeFiles/Atomic.dir/all:
+	$(MAKE) -f CMakeFiles/Atomic.dir/build.make CMakeFiles/Atomic.dir/depend
+	$(MAKE) -f CMakeFiles/Atomic.dir/build.make CMakeFiles/Atomic.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target Atomic"
+.PHONY : CMakeFiles/Atomic.dir/all
 
 # Include target in all.
-all: CMakeFiles/Dotproduct.dir/all
+all: CMakeFiles/Atomic.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Dotproduct.dir/rule: cmake_check_build_system
+CMakeFiles/Atomic.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Dotproduct.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Atomic.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/Dotproduct.dir/rule
+.PHONY : CMakeFiles/Atomic.dir/rule
 
 # Convenience name for target.
-Dotproduct: CMakeFiles/Dotproduct.dir/rule
+Atomic: CMakeFiles/Atomic.dir/rule
 
-.PHONY : Dotproduct
-
-# clean rule for target.
-CMakeFiles/Dotproduct.dir/clean:
-	$(MAKE) -f CMakeFiles/Dotproduct.dir/build.make CMakeFiles/Dotproduct.dir/clean
-.PHONY : CMakeFiles/Dotproduct.dir/clean
+.PHONY : Atomic
 
 # clean rule for target.
-clean: CMakeFiles/Dotproduct.dir/clean
+CMakeFiles/Atomic.dir/clean:
+	$(MAKE) -f CMakeFiles/Atomic.dir/build.make CMakeFiles/Atomic.dir/clean
+.PHONY : CMakeFiles/Atomic.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/Atomic.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/Mutex.dir
+
+# All Build rule for target.
+CMakeFiles/Mutex.dir/all:
+	$(MAKE) -f CMakeFiles/Mutex.dir/build.make CMakeFiles/Mutex.dir/depend
+	$(MAKE) -f CMakeFiles/Mutex.dir/build.make CMakeFiles/Mutex.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles --progress-num=5,6 "Built target Mutex"
+.PHONY : CMakeFiles/Mutex.dir/all
+
+# Include target in all.
+all: CMakeFiles/Mutex.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Mutex.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Mutex.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/Mutex.dir/rule
+
+# Convenience name for target.
+Mutex: CMakeFiles/Mutex.dir/rule
+
+.PHONY : Mutex
+
+# clean rule for target.
+CMakeFiles/Mutex.dir/clean:
+	$(MAKE) -f CMakeFiles/Mutex.dir/build.make CMakeFiles/Mutex.dir/clean
+.PHONY : CMakeFiles/Mutex.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/Mutex.dir/clean
 
 .PHONY : clean
 

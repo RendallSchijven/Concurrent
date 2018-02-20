@@ -4,4 +4,5 @@ project(Concurrent)
 set(CMAKE_CXX_STANDARD 11)
 
 add_executable(Mandelbrot mandelbrot.cpp)
-add_executable(Dotproduct dotproduct.cpp)
+add_executable(Mutex dotproductMutex.cpp)
+add_executable(Atomic dotproductAtomic.cpp)

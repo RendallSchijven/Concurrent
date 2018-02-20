@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /cygdrive/c/Users/renda/Desktop/Git/Concurrent/cmake-build-de
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/cygdrive/c/Users/renda/.CLion2017.3/system/cygwin_cmake/bin/cmake.exe -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/cygdrive/c/Users/renda/.CLion2017.3/system/cygwin_cmake/bin/cmake.exe -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,17 +111,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Dotproduct
+# Target rules for targets named Atomic
 
 # Build rule for target.
-Dotproduct: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Dotproduct
-.PHONY : Dotproduct
+Atomic: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Atomic
+.PHONY : Atomic
 
 # fast build rule for target.
-Dotproduct/fast:
-	$(MAKE) -f CMakeFiles/Dotproduct.dir/build.make CMakeFiles/Dotproduct.dir/build
-.PHONY : Dotproduct/fast
+Atomic/fast:
+	$(MAKE) -f CMakeFiles/Atomic.dir/build.make CMakeFiles/Atomic.dir/build
+.PHONY : Atomic/fast
+
+#=============================================================================
+# Target rules for targets named Mutex
+
+# Build rule for target.
+Mutex: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Mutex
+.PHONY : Mutex
+
+# fast build rule for target.
+Mutex/fast:
+	$(MAKE) -f CMakeFiles/Mutex.dir/build.make CMakeFiles/Mutex.dir/build
+.PHONY : Mutex/fast
 
 #=============================================================================
 # Target rules for targets named Mandelbrot
@@ -136,32 +149,59 @@ Mandelbrot/fast:
 	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/build
 .PHONY : Mandelbrot/fast
 
-dotproduct.o: dotproduct.cpp.o
+dotproductAtomic.o: dotproductAtomic.cpp.o
 
-.PHONY : dotproduct.o
+.PHONY : dotproductAtomic.o
 
 # target to build an object file
-dotproduct.cpp.o:
-	$(MAKE) -f CMakeFiles/Dotproduct.dir/build.make CMakeFiles/Dotproduct.dir/dotproduct.cpp.o
-.PHONY : dotproduct.cpp.o
+dotproductAtomic.cpp.o:
+	$(MAKE) -f CMakeFiles/Atomic.dir/build.make CMakeFiles/Atomic.dir/dotproductAtomic.cpp.o
+.PHONY : dotproductAtomic.cpp.o
 
-dotproduct.i: dotproduct.cpp.i
+dotproductAtomic.i: dotproductAtomic.cpp.i
 
-.PHONY : dotproduct.i
+.PHONY : dotproductAtomic.i
 
 # target to preprocess a source file
-dotproduct.cpp.i:
-	$(MAKE) -f CMakeFiles/Dotproduct.dir/build.make CMakeFiles/Dotproduct.dir/dotproduct.cpp.i
-.PHONY : dotproduct.cpp.i
+dotproductAtomic.cpp.i:
+	$(MAKE) -f CMakeFiles/Atomic.dir/build.make CMakeFiles/Atomic.dir/dotproductAtomic.cpp.i
+.PHONY : dotproductAtomic.cpp.i
 
-dotproduct.s: dotproduct.cpp.s
+dotproductAtomic.s: dotproductAtomic.cpp.s
 
-.PHONY : dotproduct.s
+.PHONY : dotproductAtomic.s
 
 # target to generate assembly for a file
-dotproduct.cpp.s:
-	$(MAKE) -f CMakeFiles/Dotproduct.dir/build.make CMakeFiles/Dotproduct.dir/dotproduct.cpp.s
-.PHONY : dotproduct.cpp.s
+dotproductAtomic.cpp.s:
+	$(MAKE) -f CMakeFiles/Atomic.dir/build.make CMakeFiles/Atomic.dir/dotproductAtomic.cpp.s
+.PHONY : dotproductAtomic.cpp.s
+
+dotproductMutex.o: dotproductMutex.cpp.o
+
+.PHONY : dotproductMutex.o
+
+# target to build an object file
+dotproductMutex.cpp.o:
+	$(MAKE) -f CMakeFiles/Mutex.dir/build.make CMakeFiles/Mutex.dir/dotproductMutex.cpp.o
+.PHONY : dotproductMutex.cpp.o
+
+dotproductMutex.i: dotproductMutex.cpp.i
+
+.PHONY : dotproductMutex.i
+
+# target to preprocess a source file
+dotproductMutex.cpp.i:
+	$(MAKE) -f CMakeFiles/Mutex.dir/build.make CMakeFiles/Mutex.dir/dotproductMutex.cpp.i
+.PHONY : dotproductMutex.cpp.i
+
+dotproductMutex.s: dotproductMutex.cpp.s
+
+.PHONY : dotproductMutex.s
+
+# target to generate assembly for a file
+dotproductMutex.cpp.s:
+	$(MAKE) -f CMakeFiles/Mutex.dir/build.make CMakeFiles/Mutex.dir/dotproductMutex.cpp.s
+.PHONY : dotproductMutex.cpp.s
 
 mandelbrot.o: mandelbrot.cpp.o
 
@@ -196,13 +236,17 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... Dotproduct"
+	@echo "... rebuild_cache"
+	@echo "... Atomic"
+	@echo "... Mutex"
 	@echo "... Mandelbrot"
-	@echo "... dotproduct.o"
-	@echo "... dotproduct.i"
-	@echo "... dotproduct.s"
+	@echo "... dotproductAtomic.o"
+	@echo "... dotproductAtomic.i"
+	@echo "... dotproductAtomic.s"
+	@echo "... dotproductMutex.o"
+	@echo "... dotproductMutex.i"
+	@echo "... dotproductMutex.s"
 	@echo "... mandelbrot.o"
 	@echo "... mandelbrot.i"
 	@echo "... mandelbrot.s"
