@@ -50,5 +50,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/Atomic.dir/DependInfo.cmake"
   "CMakeFiles/Mutex.dir/DependInfo.cmake"
+  "CMakeFiles/Tree.dir/DependInfo.cmake"
   "CMakeFiles/Mandelbrot.dir/DependInfo.cmake"
   )

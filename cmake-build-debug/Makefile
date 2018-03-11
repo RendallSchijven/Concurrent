@@ -137,6 +137,19 @@ Mutex/fast:
 .PHONY : Mutex/fast
 
 #=============================================================================
+# Target rules for targets named Tree
+
+# Build rule for target.
+Tree: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Tree
+.PHONY : Tree
+
+# fast build rule for target.
+Tree/fast:
+	$(MAKE) -f CMakeFiles/Tree.dir/build.make CMakeFiles/Tree.dir/build
+.PHONY : Tree/fast
+
+#=============================================================================
 # Target rules for targets named Mandelbrot
 
 # Build rule for target.
@@ -230,6 +243,33 @@ mandelbrot.cpp.s:
 	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/mandelbrot.cpp.s
 .PHONY : mandelbrot.cpp.s
 
+tree.o: tree.cpp.o
+
+.PHONY : tree.o
+
+# target to build an object file
+tree.cpp.o:
+	$(MAKE) -f CMakeFiles/Tree.dir/build.make CMakeFiles/Tree.dir/tree.cpp.o
+.PHONY : tree.cpp.o
+
+tree.i: tree.cpp.i
+
+.PHONY : tree.i
+
+# target to preprocess a source file
+tree.cpp.i:
+	$(MAKE) -f CMakeFiles/Tree.dir/build.make CMakeFiles/Tree.dir/tree.cpp.i
+.PHONY : tree.cpp.i
+
+tree.s: tree.cpp.s
+
+.PHONY : tree.s
+
+# target to generate assembly for a file
+tree.cpp.s:
+	$(MAKE) -f CMakeFiles/Tree.dir/build.make CMakeFiles/Tree.dir/tree.cpp.s
+.PHONY : tree.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -240,6 +280,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Atomic"
 	@echo "... Mutex"
+	@echo "... Tree"
 	@echo "... Mandelbrot"
 	@echo "... dotproductAtomic.o"
 	@echo "... dotproductAtomic.i"
@@ -250,6 +291,9 @@ help:
 	@echo "... mandelbrot.o"
 	@echo "... mandelbrot.i"
 	@echo "... mandelbrot.s"
+	@echo "... tree.o"
+	@echo "... tree.i"
+	@echo "... tree.s"
 .PHONY : help
 
 
