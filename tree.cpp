@@ -2,6 +2,9 @@
 // compile with: g++ -std=c++11 tree.cpp -o tree
 
 #include <iostream>
+#include <future>
+#include <thread>
+#include <chrono>
 
 using namespace std;
 
@@ -113,13 +116,18 @@ private:
 
 int BinaryNode::eval()
 {
+    std::future<int> task = std::async(&Tree::eval, left);
+    int rightvalue = right.eval();
+    int leftvalue = task.get();
+
     switch (op) {
-        case '-': return (left.eval() - right.eval());
-        case '+': return (left.eval() + right.eval());
-        case '*': return (left.eval() * right.eval());
+        case '-': return (leftvalue - rightvalue);
+        case '+': return (leftvalue + rightvalue);
+        case '*': return (leftvalue * rightvalue);
         default: cerr << "no operand" << endl;
             return 0;
     }
+
 }
 
 Tree::Tree(int n) { p = new IntNode(n); }
