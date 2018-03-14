@@ -25,10 +25,11 @@ public:
     ~ThreadPool();
 private:
     friend class Worker;
- 
+
     std::vector<std::thread> workers;
     std::deque<std::function<void()>> tasks;
- 
+
+    std::condition_variable cond;
     std::mutex queue_mutex;
     bool stop;
 };
@@ -39,9 +40,10 @@ void Worker::operator()()
     while (true)
     {
         std::unique_lock<std::mutex> locker(pool.queue_mutex);
+        pool.cond.wait(locker, [&] () { return !pool.tasks.empty(); });
         if (pool.stop) return;
         if (!pool.tasks.empty())
-        { 
+        {
             task = pool.tasks.front();
             pool.tasks.pop_front();
             locker.unlock();
@@ -61,7 +63,7 @@ ThreadPool::ThreadPool(size_t threads): stop(false)
 ThreadPool::~ThreadPool()
 {
     stop = true; // stop all threads
-     
+    cond.notify_one();
     for (auto &thread: workers)
         thread.join();
 }
@@ -71,6 +73,7 @@ void ThreadPool::enqueue(F f)
 {
     std::unique_lock<std::mutex> lock(queue_mutex);
     tasks.push_back(std::function<void()>(f));
+    cond.notify_one();
 }
 
 int main()
