@@ -63,7 +63,7 @@ ThreadPool::ThreadPool(size_t threads): stop(false)
 ThreadPool::~ThreadPool()
 {
     stop = true; // stop all threads
-    cond.notify_one();
+    cond.notify_all();
     for (auto &thread: workers)
         thread.join();
 }
