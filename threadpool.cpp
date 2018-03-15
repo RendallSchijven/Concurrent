@@ -40,7 +40,7 @@ void Worker::operator()()
     while (true)
     {
         std::unique_lock<std::mutex> locker(pool.queue_mutex);
-        pool.cond.wait(locker, [&] () { return !pool.tasks.empty(); });
+        pool.cond.wait(locker, [&] () { if(!pool.stop) return !pool.tasks.empty(); });
         if (pool.stop) return;
         if (!pool.tasks.empty())
         {
