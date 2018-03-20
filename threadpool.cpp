@@ -30,6 +30,7 @@ private:
     std::deque<std::function<void()>> tasks;
 
     std::condition_variable cond;
+
     std::mutex queue_mutex;
     bool stop;
 };
@@ -40,17 +41,12 @@ void Worker::operator()()
     while (true)
     {
         std::unique_lock<std::mutex> locker(pool.queue_mutex);
-        pool.cond.wait(locker, [&] () { if(!pool.stop) return !pool.tasks.empty(); });
+        pool.cond.wait(locker, [&]() { return !pool.tasks.empty() || pool.stop;});
         if (pool.stop) return;
-        if (!pool.tasks.empty())
-        {
-            task = pool.tasks.front();
-            pool.tasks.pop_front();
-            locker.unlock();
-            task();
-        } else {
-            locker.unlock();
-        }
+        task = pool.tasks.front();
+        pool.tasks.pop_front();
+        locker.unlock();
+        task();
     }
 }
 
@@ -73,13 +69,12 @@ void ThreadPool::enqueue(F f)
 {
     std::unique_lock<std::mutex> lock(queue_mutex);
     tasks.push_back(std::function<void()>(f));
-    cond.notify_one();
 }
 
 int main()
 {
     ThreadPool pool(4);
- 
+
     // queue a bunch of "work items"
     for (int i = 0; i < 8; ++i)
         pool.enqueue([i]() { std::cout << "Hello from work item " << i << std::endl; });
