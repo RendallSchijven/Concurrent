@@ -69,6 +69,7 @@ void ThreadPool::enqueue(F f)
 {
     std::unique_lock<std::mutex> lock(queue_mutex);
     tasks.push_back(std::function<void()>(f));
+    cond.notify_one();
 }
 
 int main()
