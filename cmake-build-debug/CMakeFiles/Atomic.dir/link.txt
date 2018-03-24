@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/Atomic.dir/dotproductAtomic.cpp.o  -o Atomic.exe -Wl,--out-implib,libAtomic.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

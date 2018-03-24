@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/renda/Desktop/Git/Concurrent/mandelbrot.cpp
+fstream
+-
+iostream
+-
+thread
+-
+vector
+-
+complex
+-
+

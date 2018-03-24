@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/Dotproduct.dir/dotproduct.cpp.o  -o Dotproduct.exe -Wl,--out-implib,libDotproduct.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
