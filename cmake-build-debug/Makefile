@@ -150,6 +150,19 @@ Mutex/fast:
 .PHONY : Mutex/fast
 
 #=============================================================================
+# Target rules for targets named tttmc
+
+# Build rule for target.
+tttmc: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tttmc
+.PHONY : tttmc
+
+# fast build rule for target.
+tttmc/fast:
+	$(MAKE) -f CMakeFiles/tttmc.dir/build.make CMakeFiles/tttmc.dir/build
+.PHONY : tttmc/fast
+
+#=============================================================================
 # Target rules for targets named Tree
 
 # Build rule for target.
@@ -310,6 +323,60 @@ tree.cpp.s:
 	$(MAKE) -f CMakeFiles/Tree.dir/build.make CMakeFiles/Tree.dir/tree.cpp.s
 .PHONY : tree.cpp.s
 
+ttt.o: ttt.cpp.o
+
+.PHONY : ttt.o
+
+# target to build an object file
+ttt.cpp.o:
+	$(MAKE) -f CMakeFiles/tttmc.dir/build.make CMakeFiles/tttmc.dir/ttt.cpp.o
+.PHONY : ttt.cpp.o
+
+ttt.i: ttt.cpp.i
+
+.PHONY : ttt.i
+
+# target to preprocess a source file
+ttt.cpp.i:
+	$(MAKE) -f CMakeFiles/tttmc.dir/build.make CMakeFiles/tttmc.dir/ttt.cpp.i
+.PHONY : ttt.cpp.i
+
+ttt.s: ttt.cpp.s
+
+.PHONY : ttt.s
+
+# target to generate assembly for a file
+ttt.cpp.s:
+	$(MAKE) -f CMakeFiles/tttmc.dir/build.make CMakeFiles/tttmc.dir/ttt.cpp.s
+.PHONY : ttt.cpp.s
+
+ttt_mc.o: ttt_mc.cpp.o
+
+.PHONY : ttt_mc.o
+
+# target to build an object file
+ttt_mc.cpp.o:
+	$(MAKE) -f CMakeFiles/tttmc.dir/build.make CMakeFiles/tttmc.dir/ttt_mc.cpp.o
+.PHONY : ttt_mc.cpp.o
+
+ttt_mc.i: ttt_mc.cpp.i
+
+.PHONY : ttt_mc.i
+
+# target to preprocess a source file
+ttt_mc.cpp.i:
+	$(MAKE) -f CMakeFiles/tttmc.dir/build.make CMakeFiles/tttmc.dir/ttt_mc.cpp.i
+.PHONY : ttt_mc.cpp.i
+
+ttt_mc.s: ttt_mc.cpp.s
+
+.PHONY : ttt_mc.s
+
+# target to generate assembly for a file
+ttt_mc.cpp.s:
+	$(MAKE) -f CMakeFiles/tttmc.dir/build.make CMakeFiles/tttmc.dir/ttt_mc.cpp.s
+.PHONY : ttt_mc.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -321,6 +388,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Atomic"
 	@echo "... Mutex"
+	@echo "... tttmc"
 	@echo "... Tree"
 	@echo "... Mandelbrot"
 	@echo "... dotproductAtomic.o"
@@ -338,6 +406,12 @@ help:
 	@echo "... tree.o"
 	@echo "... tree.i"
 	@echo "... tree.s"
+	@echo "... ttt.o"
+	@echo "... ttt.i"
+	@echo "... ttt.s"
+	@echo "... ttt_mc.o"
+	@echo "... ttt_mc.i"
+	@echo "... ttt_mc.s"
 .PHONY : help
 
 

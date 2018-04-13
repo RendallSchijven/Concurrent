@@ -1,0 +1,162 @@
+// ttt_mc.cpp
+// Rendall Schijven
+
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <map>
+#include <future>
+#include <deque>
+#include "ttt_mc.h"
+
+unsigned const n_trials = 15000;
+unsigned const mc_match = 1;
+unsigned const mc_other = 1;
+unsigned const n_threads = 4;
+
+enum class PlayerType { Human, Computer };
+
+State mcTrial(const State &board)
+{
+    State testBoard = board;
+    std::vector<Move> moves = getMoves(board);
+
+    while(moves.size() > 0)
+    {
+        Move m = moves[rand() % moves.size()];
+        testBoard = doMove(testBoard, m);
+        moves = getMoves(testBoard);
+    }
+    return testBoard;
+}
+
+void mcUpdateScores(std::array<int,9> &scores, const State &board, const Player &player)
+{
+    //Initialise mutex
+    std::mutex mutex;
+
+    Player winner = getWinner(board);
+
+    for(int i = 0; i < 9; i++)
+    {
+        //If human won
+        if(winner != player)
+        {
+            //Lock the thread so only one thread can run the code at a time
+            mutex.lock();
+            if(board[i] == Player::X) scores[i] += mc_other;
+            if(board[i] == Player::O) scores[i] -= mc_match;
+            mutex.unlock();
+        }
+
+        //If code won
+        if(winner == player)
+        {
+            mutex.lock();
+            if(board[i] == Player::O) scores[i] += mc_match;
+            if(board[i] == Player::X) scores[i] -= mc_other;
+            mutex.unlock();
+        }
+    }
+}
+
+Move getBestMove(const std::array<int, 9> &scores, const State &board)
+{
+    int highScore = 0;
+
+    std::vector<int> highestPositions;
+    for(int i = 0; i < 9; i++)
+    {
+        if(scores[i] >= highScore && board[i] == Player::None)
+        {
+            highScore = scores[i];
+            highestPositions.push_back(i);
+        }
+    }
+    Move m = highestPositions[rand() % highestPositions.size()];
+    return m;
+}
+
+void parrallel_mcTrial(std::array<int,9> &scores, const State &board, const Player &player)
+{
+    /*
+     * Run mcTrial for the amount of trials divided by amount of
+     * threads so each thread does the same amount of trials.
+     * Also updates the scores using mcUpdateScores where the mutex is used.
+     */
+    for(int i = 0; i < n_trials/ n_threads; i++)
+    {
+        State tempBoard = mcTrial(board);
+        mcUpdateScores(scores, tempBoard, player);
+    }
+}
+
+Move mcMove(const State &board, const Player &player)
+{
+    std::array<int, 9> scores = {0,0,0,0,0,0,0,0,0};
+
+    //Initialise an array of threads
+    std::vector<std::thread> workers;
+
+    //Create a thread with the parrallel_mcTrial function n_threads amount of times
+    for (int i = 0; i < n_threads; ++i) {
+        workers.push_back(std::thread(
+                parrallel_mcTrial, std::ref(scores), board, player
+        ));
+    }
+    //Join the threads.
+    for (auto &thread : workers) {
+        thread.join();
+    }
+
+    //Return the best move.
+    return getBestMove(scores, board);
+}
+
+int main()
+{
+    std::srand(std::time(0));
+
+    std::map<Player,PlayerType> playerType;
+    playerType[Player::X] = PlayerType::Human;
+    playerType[Player::O] = PlayerType::Computer;
+
+    State board = {
+            Player::None, Player::None, Player::None,
+            Player::None, Player::None, Player::None,
+            Player::None, Player::None, Player::None };
+    std::cout << board << std::endl;
+
+    std::vector<Move> moves = getMoves(board);
+    while (moves.size() > 0) {
+        if (playerType[getCurrentPlayer(board)] == PlayerType::Human)
+        {
+            std::cout << "+-+-+-+" << std::endl <<
+                      "|0|1|2|" << std::endl <<
+                      "+-+-+-+" << std::endl <<
+                      "|3|4|5|" << std::endl <<
+                      "+-+-+-+" << std::endl <<
+                      "|6|7|8|" << std::endl <<
+                      "+-+-+-+" << std::endl << std::endl;
+            std::cout << "Enter a move ( ";
+            for (Move m: moves) std::cout << m << " ";
+            std::cout << "): ";
+            Move m;
+            std::cin >> m;
+            board = doMove(board, m);
+        }
+        else {
+            board = doMove(board, mcMove(board, getCurrentPlayer(board)));
+        }
+        std::cout << board << std::endl;
+        moves = getMoves(board);
+    }
+
+    Player winner = getWinner(board);
+    if(winner == Player::X) std::cout << "You won!" << std::endl;
+    else if(winner == Player::O) std::cout << "The computer won! " << std::endl;
+    else std::cout << "Draw!" << std::endl;
+
+    return 0;
+}
+

@@ -168,7 +168,7 @@ void mandelbrot(int minX, int maxX, int width, int height, PPMImage &image){
 }
 
 int main()
-{
+    {
     const unsigned width = 1600;
     const unsigned height = 1300;
     const unsigned threads = 4;
